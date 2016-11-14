@@ -1,0 +1,66 @@
+require "spec_helper"
+
+describe "Practica4" do
+  before(:all) do
+  @Lista_doble_tony = Lista_Doblemente_Enlazada.new()
+  
+  @comida11 = Comida.new("200","Leche desnatada","1 vaso")
+  @comida12 = Comida.new("10","Cacao instantaneo","1 c/sopera")
+  @comida13 = Comida.new("40","Cereales de desayuno de hojuelas","1 bol pequeño")
+  @comida14 = Comida.new("10","Almendras laminadas","2 c/sopera")
+    @comida1 = Dieta.new("DESAYUNO",288.0,17,21,62,"15%")
+      @comida1.push_plato(@comida11)
+      @comida1.push_plato(@comida12)
+      @comida1.push_plato(@comida13)
+      @comida1.push_plato(@comida14)
+  
+  @comida21 = Comida.new("120","Cerezas","10-12 unidades medianas")
+  @comida22 = Comida.new("40","Galletas bifidus con sesamo","4 unidades")
+    @comida2 = Dieta.new("MEDIA MAÑANA",255.5,7,24,69,"10%")
+      @comida2.push_plato(@comida21)
+      @comida2.push_plato(@comida22)
+  
+    @comida31 = Comida.new("200","Macarrones con salsa de tomate y queso parmesano","1 1/2 cucharón")
+    @comida32 = Comida.new("100","Escalope de ternera","1 bistec mediano")
+    @comida33 = Comida.new("120","Ensalada basica con zanahoria rallada","guarnicion")
+    @comida34 = Comida.new("180","Mandarina","1 grande")
+    @comida35 = Comida.new("20","Pan de trigo integral","1 rodaja")
+     @comida3 = Dieta.new("ALMUERZO",785.9,19,32,47,"30-35%")
+      @comida3.push_plato(@comida31)
+      @comida3.push_plato(@comida32)
+      @comida3.push_plato(@comida33)
+      @comida3.push_plato(@comida34)
+      @comida3.push_plato(@comida35)
+      
+    @comida41 = Comida.new("46","Galletas de leche con chocolate y yogur","4 unidades")
+    @comida42 = Comida.new("110","Flan de vainilla sin huevo","1 unidad")
+      @comida4 = Dieta.new("MERIENDA",313.6,10,30,60,"15%")
+        @comida4.push_plato(@comida41)
+        @comida4.push_plato(@comida42)
+        
+    @comida51 = Comida.new("200","Crema de bubango","2 cucharón")
+    @comida52 = Comida.new("150","Tortilla campesina con espinacas","1 cuña grande")
+    @comida53 = Comida.new("150","Tomate en dados con atun","5 a 6 c/soperas")
+    @comida54 = Comida.new("120","Piña natural o en su jugo picada","5 c/soperas")
+    @comida55 = Comida.new("20","Pan de trigo integral","1 rodaja")
+     @comida5 = Dieta.new("ALMUERZO",785.9,19,32,47,"30-35%")
+      @comida5.push_plato(@comida51)
+      @comida5.push_plato(@comida52)
+      @comida5.push_plato(@comida53)
+      @comida5.push_plato(@comida54)
+      @comida5.push_plato(@comida55)
+  
+  @node_comida1 = Node.new(@comida1,nil,nil)
+  @node_comida2 = Node.new(@comida2,nil,nil)
+  @node_comida3 = Node.new(@comida3,nil,nil)
+  @node_comida4 = Node.new(@comida4,nil,nil)
+  @node_comida5 = Node.new(@comida5,nil,nil)
+  
+  @nodo_prueba1 = Node.new(@comida1,nil,nil)
+  @nodo_prueba2 = Node.new(@comida2,nil,nil)
+  @lista_prueba = Lista_doble.new()
+  @lista_prueba.push_start(@nodo_prueba1)
+  @lista_prueba.push_start(@nodo_prueba2)
+end
+
+end
