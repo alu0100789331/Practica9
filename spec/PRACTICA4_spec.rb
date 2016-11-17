@@ -58,9 +58,62 @@ describe "Practica4" do
   
   @nodo_prueba1 = Node.new(@comida1,nil,nil)
   @nodo_prueba2 = Node.new(@comida2,nil,nil)
-  @lista_prueba = Lista_doble.new()
+  @lista_prueba = Lista_Doblemente_Enlazada.new()
   @lista_prueba.push_start(@nodo_prueba1)
   @lista_prueba.push_start(@nodo_prueba2)
 end
 
+describe "NODE" do
+  it "Debe existir un Nodo de la lista con sus datos y su siguiente" do
+    expect(@nodo_prueba1.Next_).to be nil
+    expect(@nodo_prueba1.Prev_).not_to be nil
+  
+    expect(@nodo_prueba2.Next_).not_to be nil
+    expect(@nodo_prueba2.Prev_).to be nil
+  end
+end
+describe "Lista" do
+it "Se extrae el primer elemento de la lista" do
+  expect(@lista_prueba.Size_).to eq(2)
+  @test = @lista_prueba.pop_start()
+  expect(@lista_prueba.Size_).to eq(1)
+  expect(@test).to eq(@nodo_prueba2)
+end
+
+it "Se extrae el ultimo elemento de la lista" do
+  @lista_prueba.push_start(@nodo_prueba2)
+  expect(@lista_prueba.Size_).to eq(2)
+  @test = @lista_prueba.pop_end()
+  expect(@lista_prueba.Size_).to eq(1)
+  expect(@test).to eq(@nodo_prueba1)
+end
+
+it "Se puede insertar un elemento por el HEAD" do
+  expect(@Lista_doble_tony.get_size()).to eq(0)
+  @Lista_doble_tony.push_start(@node_comida1)
+  expect(@Lista_doble_tony.get_size()).to eq(1)
+end
+
+it "Se puede insertar un elemento por el TAIL" do
+  expect(@Lista_doble_tony.get_size()).to eq(1)
+  @Lista_doble_tony.push_start(@node_comida1)
+  expect(@Lista_doble_tony.get_size()).to eq(2)
+end
+
+it "Se puede insertar varios elementos" do
+    @Lista_doble_tony.push_start(@node_comida2)
+    @Lista_doble_tony.push_start(@node_comida3)
+    @Lista_doble_tony.push_start(@node_comida4)
+    @Lista_doble_tony.push_start(@node_comida5)
+    expect(@Lista_doble_tony.get_size()).to eq(6)
+    
+end
+
+it "Debe existir una Lista con su HEAD" do
+  expect(@lista_prueba.Head_).not_to be nil
+end
+it "Debe existir una Lista con su TAIL" do
+  expect(@lista_prueba.Tail_).not_to be nil
+end
+end
 end
