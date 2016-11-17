@@ -124,18 +124,54 @@ class Dieta
 end
 
 
+    class Por_Edad < Dieta
+        attr_reader :edades
+        def initialize(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta, dieta_edad)
+            super(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta)
+            @edades = dieta_edad
+        end
+        
+        def mostrar_dieta_edad()
+            puts @edades
+            self.mostrar_dieta()
+        end
+    end
+    
+    class Por_Alimentos < Dieta
+        attr_reader :alimentos
+        def initialize(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta, dieta_alimentos)
+            super(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta)
+            @alimentos = dieta_alimentos
+        end
+        
+        def mostrar_dieta_alim()
+            puts @alimentos
+            self.mostrar_dieta()
+        end
+    end
 
-
-
-#    @comida1 = Comida.new("200","Macarrones con salsa de tomate y queso parmesano","1 1/2 cucharón")
-#    @comida2 = Comida.new("100","Escalope de ternera","1 bistec mediano")
-#    @comida3 = Comida.new("120","Ensalada basica con zanahoria rallada","guarnicion")
-#    @comida4 = Comida.new("180","Mandarina","1 grande")
-#    @comida5 = Comida.new("20","Pan de trigo integral","1 rodaja")
-#    @dieta1 = Dieta.new("Almuerzo",786.9,19,34,47,"30 - 35%")
-#        @dieta1.push_plato(@comida1)
-#        @dieta1.push_plato(@comida2)
-#        @dieta1.push_plato(@comida3)
-#        @dieta1.push_plato(@comida4)
-#        @dieta1.push_plato(@comida5)
-#            @dieta1.mostrar_dieta()
+    #@comida1 = Comida.new("200","Macarrones con salsa de tomate y queso parmesano","1 1/2 cucharón")
+    #@comida2 = Comida.new("100","Escalope de ternera","1 bistec mediano")
+    #@comida3 = Comida.new("120","Ensalada basica con zanahoria rallada","guarnicion")
+    #@comida4 = Comida.new("180","Mandarina","1 grande")
+    #@comida5 = Comida.new("20","Pan de trigo integral","1 rodaja")
+    #@dieta1 = Dieta.new("Almuerzo",786.9,19,34,47,"30 - 35%")
+    #    @dieta1.push_plato(@comida1)
+    #    @dieta1.push_plato(@comida2)
+    #    @dieta1.push_plato(@comida3)
+    #    @dieta1.push_plato(@comida4)
+    #    @dieta1.push_plato(@comida5)
+    #        @dieta1.mostrar_dieta()
+    
+    @comida1 = Comida.new("200","Macarrones con salsa de tomate y queso parmesano","1 1/2 cucharón")
+    @comida2 = Comida.new("100","Escalope de ternera","1 bistec mediano")
+    @comida3 = Comida.new("120","Ensalada basica con zanahoria rallada","guarnicion")
+    @comida4 = Comida.new("180","Mandarina","1 grande")
+    @comida5 = Comida.new("20","Pan de trigo integral","1 rodaja")
+    @dieta_edad1 = Por_Edad.new("Almuerzo",786.9,19,34,47,"30 - 35%","De 4 a 6 años")
+        @dieta_edad1.push_plato(@comida1)
+        @dieta_edad1.push_plato(@comida2)
+        @dieta_edad1.push_plato(@comida3)
+        @dieta_edad1.push_plato(@comida4)
+        @dieta_edad1.push_plato(@comida5)
+            @dieta_edad1.mostrar_dieta_edad()
