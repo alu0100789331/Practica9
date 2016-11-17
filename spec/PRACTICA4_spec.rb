@@ -61,6 +61,20 @@ describe "Practica4" do
   @lista_prueba = Lista_Doblemente_Enlazada.new()
   @lista_prueba.push_start(@nodo_prueba1)
   @lista_prueba.push_start(@nodo_prueba2)
+  
+  @Dieta_Por_Alimentos = Por_Alimentos.new("Almuerzo",786.9,19,34,47,"30 - 35%","Vegetariano")
+    @Dieta_Por_Alimentos.push_plato(@comida51)
+    @Dieta_Por_Alimentos.push_plato(@comida52)
+    @Dieta_Por_Alimentos.push_plato(@comida53)
+    @Dieta_Por_Alimentos.push_plato(@comida54)
+    @Dieta_Por_Alimentos.push_plato(@comida55)
+
+  @Dieta_Por_Edad = Por_Edad.new("Almuerzo",786.9,19,34,47,"30 - 35%","De 4 a 8")
+    @Dieta_Por_Edad.push_plato(@comida51)
+    @Dieta_Por_Edad.push_plato(@comida52)
+    @Dieta_Por_Edad.push_plato(@comida53)
+    @Dieta_Por_Edad.push_plato(@comida54)
+    @Dieta_Por_Edad.push_plato(@comida55)
 end
 
 describe "NODE" do
@@ -72,7 +86,29 @@ describe "NODE" do
     expect(@nodo_prueba2.Prev_).to be nil
   end
 end
-describe "Lista" do
+
+describe "HERENCIA" do
+  it "La clase Por_Alimentos hereda de Dieta" do
+    expect(@Dieta_Por_Alimentos).instance_of?(Dieta)
+  end
+  
+  it "La clase Por_Edad hereda de Dieta" do
+    expect(@Dieta_Por_Edad).instance_of?(Dieta)
+  end
+  
+  it "La clase Por_Edad pertenece tanto a Por_Edad como a Dieta" do
+    expect(@Dieta_Por_Edad).to be_a(Por_Edad)
+    expect(@Dieta_Por_Edad).to be_a(Dieta)
+  end
+  
+  it "La clase Por_Alimentos pertenece tanto a Por_Alimentos como a Dieta" do
+    expect(@Dieta_Por_Alimentos).to be_a(Por_Alimentos)
+    expect(@Dieta_Por_Alimentos).to be_a(Dieta)
+  end
+  
+end
+
+describe "LISTA" do
 it "Se extrae el primer elemento de la lista" do
   expect(@lista_prueba.Size_).to eq(2)
   @test = @lista_prueba.pop_start()
