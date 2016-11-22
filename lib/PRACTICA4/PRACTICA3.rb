@@ -1,18 +1,18 @@
 
-class Comida
+class Comida                #Clase comida principal para generacion de Dieta (Plato)
     attr_reader :Por_IngDia, :Descripcion, :Porcion_reco, :Peso
     
-    def initialize(por_ingdia, descripcion, porcion_reco)
+    def initialize(por_ingdia, descripcion, porcion_reco)       #constructor
        @Por_IngDia = por_ingdia
        @Descripcion = descripcion
        @Porcion_reco = porcion_reco
     end
     
-    def get_poringdia()
+    def get_poringdia()                                         #devolvemos Porcion Ingerida
         @Por_IngDia
     end
     
-    def get_descripcion()
+    def get_descripcion()                                       #Descripcion
         @Descripcion
     end
     
