@@ -152,4 +152,25 @@ it "Debe existir una Lista con su TAIL" do
   expect(@lista_prueba.Tail_).not_to be nil
 end
 end
+
+describe "Menus COMPARABLE" do
+  it "Se pueden comparar el numero de platos por dieta (1)" do
+    expect(@comida5 < @comida4).to eq(false)
+  end
+  
+  it "Se pueden comparar el numero de platos por dieta (2)" do
+    expect(@comida4 < @comida5).to eq(true)
+  end
+end
+
+describe "Lista ENUMERABLE" do
+  it "Se puede dar la vuelta a la lista" do
+    aux = @lista_prueba.reverse()
+    expect(@lista_prueba.Head_).to eq(aux.Tail_)
+  end
+  
+  it "Obtenemos el map" do
+    
+  end
+end
 end
