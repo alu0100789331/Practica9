@@ -35,7 +35,7 @@ end
 
 class Dieta
     attr_reader :Titulo, :Platos, :VCT, :P_proteinas, :P_grasas, :P_hidratos, :Por_dieta
-    
+    include Comparable
     def initialize(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta)
        @Titulo = titulo
        @Platos = Array.new()
@@ -45,6 +45,10 @@ class Dieta
        @P_hidratos = p_hidratos
        @P_dieta = p_dieta
        @n_platos = 0
+    end
+    
+    def <=>(other)
+        self.Platos.size() <=> other.Platos.size()
     end
     
     def formatear()
@@ -126,6 +130,7 @@ end
 
     class Por_Edad < Dieta
         attr_reader :edades
+        include Comparable
         def initialize(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta, dieta_edad)
             super(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta)
             @edades = dieta_edad
@@ -139,6 +144,7 @@ end
     
     class Por_Alimentos < Dieta
         attr_reader :alimentos
+        include Comparable
         def initialize(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta, dieta_alimentos)
             super(titulo, vct, p_proteinas, p_grasas, p_hidratos,p_dieta)
             @alimentos = dieta_alimentos
