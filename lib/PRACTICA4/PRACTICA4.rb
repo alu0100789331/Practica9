@@ -1,16 +1,16 @@
 Node = Struct.new(:Data_, :Next_, :Prev_)   #Nuestro nodo
 
-class Lista_Doblemente_Enlazada
+class Lista_Doblemente_Enlazada                             #lista enlazada
     attr_reader :Size_, :Head_, :Tail_
     include Enumerable
     
-    def initialize()
+    def initialize()                                        #constructor
        @Size_ = 0
        @Head_ = nil
        @Tail_ = nil
     end
     
-    def each
+    def each                                                #func. necesaria para recorrer con el Enumerable
         return nil if @Head_.nil?
         entry = @Head_
         until entry.nil?
@@ -19,7 +19,7 @@ class Lista_Doblemente_Enlazada
         end
     end
     
-    def push_start(data)
+    def push_start(data)                                     #push start
         if(@Size_==0)
             @Tail_ = data
             data.Next_ = nil
@@ -32,7 +32,7 @@ class Lista_Doblemente_Enlazada
             @Size_ = @Size_ + 1
     end
     
-    def push_end(data)
+    def push_end(data)                                      #push end
        if(@Size_==0)
             @Head_ = data
             data.Prev_ = nil
@@ -45,7 +45,7 @@ class Lista_Doblemente_Enlazada
            @Size_ = @Size_ + 1
     end
     
-    def pop_start()
+    def pop_start()                                         #pop start
        if(@Size_==0)
            puts "La Lista_Doblemente_Enlazada esta vacia"
        else
@@ -57,13 +57,13 @@ class Lista_Doblemente_Enlazada
        end
     end
     
-    def reverse()
+    def reverse()                                           #reverse de los nodos de una lista
         new_list = Lista_Doblemente_Enlazada.new()
         self.each {|entry| new_list.push_start(Node.new(entry.Data_,nil,nil))}
         return new_list
     end
     
-    def pop_end()
+    def pop_end()                                           #pop end
         if(@Size_==0)
             
         else
@@ -74,8 +74,8 @@ class Lista_Doblemente_Enlazada
            return aux
         end
     end
-    #mierda
-    def mostrar()
+    
+    def mostrar()                                           #mostrar
        if(@Size_==0)
            puts "La Lista_Doblemente_Enlazada esta vacia"
        else
@@ -87,7 +87,7 @@ class Lista_Doblemente_Enlazada
        end
     end
     
-    def get_size()
+    def get_size()                                          #devolvemos size
         @Size_
     end
     
@@ -95,19 +95,19 @@ class Lista_Doblemente_Enlazada
     
     
 end
-@listita = Lista_Doblemente_Enlazada.new()
-@nodo_prueba1 = Node.new(1,nil,nil)
-@nodo_prueba2 = Node.new(2,nil,nil)
-@nodo_prueba3 = Node.new(3,nil,nil)
-@nodo_prueba4 = Node.new(4,nil,nil)
-@listita.push_start(@nodo_prueba2)
-@listita.push_start(@nodo_prueba1)
-@listita.mostrar()
-puts
+#@listita = Lista_Doblemente_Enlazada.new()
+#@nodo_prueba1 = Node.new(1,nil,nil)
+#@nodo_prueba2 = Node.new(2,nil,nil)
+#@nodo_prueba3 = Node.new(3,nil,nil)
+#@nodo_prueba4 = Node.new(4,nil,nil)
+#@listita.push_start(@nodo_prueba2)
+#@listita.push_start(@nodo_prueba1)
+#@listita.mostrar()
+#puts
 
-aux = @listita.reverse()
-aux.mostrar()
-puts
+#aux = @listita.reverse()
+#aux.mostrar()
+#puts
 
 #@listita.push_end(@nodo_prueba3)
 #@listita.mostrar()
