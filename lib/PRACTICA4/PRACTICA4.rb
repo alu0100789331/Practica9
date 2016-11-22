@@ -2,11 +2,21 @@ Node = Struct.new(:Data_, :Next_, :Prev_)   #Nuestro nodo
 
 class Lista_Doblemente_Enlazada
     attr_reader :Size_, :Head_, :Tail_
+    include Enumerable
     
     def initialize()
        @Size_ = 0
        @Head_ = nil
        @Tail_ = nil
+    end
+    
+    def each
+        return nil if @Head_.nil?
+        entry = @Head_
+        until entry.nil?
+            yield entry
+            entry = entry.Next_
+        end
     end
     
     def push_start(data)
@@ -47,6 +57,12 @@ class Lista_Doblemente_Enlazada
        end
     end
     
+    def reverse()
+        new_list = Lista_Doblemente_Enlazada.new()
+        self.each {|entry| new_list.push_start(Node.new(entry.Data_,nil,nil))}
+        return new_list
+    end
+    
     def pop_end()
         if(@Size_==0)
             
@@ -79,15 +95,19 @@ class Lista_Doblemente_Enlazada
     
     
 end
-#@listita = Lista_Doblemente_Enlazada.new()
-#@nodo_prueba1 = Node.new(1,nil,nil)
-#@nodo_prueba2 = Node.new(2,nil,nil)
-#@nodo_prueba3 = Node.new(3,nil,nil)
-#@nodo_prueba4 = Node.new(4,nil,nil)
-#@listita.push_start(@nodo_prueba2)
-#@listita.push_start(@nodo_prueba1)
-#@listita.mostrar()
-#puts
+@listita = Lista_Doblemente_Enlazada.new()
+@nodo_prueba1 = Node.new(1,nil,nil)
+@nodo_prueba2 = Node.new(2,nil,nil)
+@nodo_prueba3 = Node.new(3,nil,nil)
+@nodo_prueba4 = Node.new(4,nil,nil)
+@listita.push_start(@nodo_prueba2)
+@listita.push_start(@nodo_prueba1)
+@listita.mostrar()
+puts
+
+aux = @listita.reverse()
+aux.mostrar()
+puts
 
 #@listita.push_end(@nodo_prueba3)
 #@listita.mostrar()
