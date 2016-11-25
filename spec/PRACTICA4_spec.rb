@@ -169,8 +169,26 @@ describe "Lista ENUMERABLE" do
     expect(@lista_prueba.Head_).to eq(aux.Tail_)
   end
   
-  it "Obtenemos el map" do
-    
+  it "Obtenemos el max" do
+    aux = @lista_prueba.max
+    expect(aux).to eq(@lista_prueba.Head_)
+  end
+  
+  it "Obtenemos el min" do
+    aux = @lista_prueba.min
+    expect(aux).to eq(@nodo_prueba2) 
+  end
+  
+  it "Funcion 'any'" do
+    expect(@lista_prueba.any? {|a| a.to_s =="#{@nodo_prueba2}"}).to be true
+  end
+  
+  it "Funcion 'count'" do
+    expect(@lista_prueba.count).to eq(@lista_prueba.Size_)
+  end
+  
+  it "Funcion 'all'" do
+    expect(@lista_prueba.all? {|a| a.class == Node}).to be true
   end
 end
 end
